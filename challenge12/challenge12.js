@@ -25,6 +25,7 @@ Gunakan 'skip' untuk menangguhkan pertanyaanya, dan di akhir pertanyaan akan dit
             if(jawaban == 'skip'){
                 data.push(data[index])
                 data.splice(index, 1)
+                salah = 0
                 console.log(`\npertanyaan : ${data[index].definition}`)
             }else{
                 if(jawaban == data[index].term){
