@@ -13,15 +13,15 @@ const rl = readline.createInterface({
 Misalnya : 'node challenge12.js data.json'`)
                 rl.close()
     }else{
-        console.log(`Selamat datang di permainan Tebak-tebakan. Kamu akan diberikan pertanyaan dari file ini ${fileName}
-untuk bermain, jawablah dengan jawaban sesuai.
-Gunakan 'skip' untuk menangguhkan pertanyaanya, dan di akhir pertanyaan akan ditanyakan lagi \n`)
         fs.readFile(fileName, (err, isi) => {
         if(err) throw err
         const data = JSON.parse(isi)
         // console.log(data)
         let index = 0
         let salah = 0
+        console.log(`Selamat datang di permainan Tebak-tebakan. Kamu akan diberikan pertanyaan dari file ini ${fileName}
+untuk bermain, jawablah dengan jawaban sesuai.
+Gunakan 'skip' untuk menangguhkan pertanyaanya, dan di akhir pertanyaan akan ditanyakan lagi \n`)
         console.log(`pertanyaan : ${data[index].definition}`)
         rl.prompt()
         rl.on('line', (jawab) =>{
