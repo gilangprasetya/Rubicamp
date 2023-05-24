@@ -1,0 +1,22 @@
+[
+   {
+      "id": 1,
+      "sentence": "saya pergi nonton",
+      "status": false,
+      "tags": [
+         "nonton"
+      ]
+   },
+   {
+      "id": 2,
+      "sentence": "saya pergi berbelanja",
+      "status": true,
+      "tags": []
+   },
+   {
+      "id": 3,
+      "sentence": "saya pergi ke sekolah",
+      "status": false,
+      "tags": []
+   }
+]
