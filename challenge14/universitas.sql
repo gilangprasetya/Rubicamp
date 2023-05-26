@@ -29,6 +29,7 @@ CREATE TABLE dosen(
 INSERT INTO dosen(id_dosen, nama_dosen, id_mk) VALUES('D01', 'Billy O', 'MK1');
 
 CREATE TABLE teach(
+    id_teach INTEGER PRIMARY KEY AUTOINCREMENT,
     nim VARCHAR(3) NOT NULL,
     id_dosen VARCHAR(3) NOT NULL,
     id_mk VARCHAR(3) NOT NULL,
@@ -36,3 +37,4 @@ CREATE TABLE teach(
     FOREIGN KEY(id_dosen) REFERENCES dosen(id_dosen),
     FOREIGN KEY(id_mk) REFERENCES matakuliah(id_mk)
 );
+INSERT INTO(nim, id_dosen, id_mk) VALUES('001', 'D01', 'MK1')
