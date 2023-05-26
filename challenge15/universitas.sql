@@ -12,7 +12,7 @@ CREATE TABLE mahasiswa(
     FOREIGN KEY(id_jurusan) REFERENCES jurusan(id_jurusan)
 );
 ALTER TABLE mahasiswa ADD COLUMN umur_mhs VARCHAR(2);
-INSERT INTO mahasiswa(nim, nama_mhs, alamat_mhs, id_jurusan, umur_mhs) VALUES('001', 'Gilang Prasetya', 'jalan. garuda gg bersama', 'J01', '27'),('002', 'Mahyudin Akbar', 'belawan', 'J01', '18');
+INSERT INTO mahasiswa(nim, nama_mhs, alamat_mhs, id_jurusan, umur_mhs) VALUES('001', 'Gilang Prasetya', 'jalan. garuda gg bersama', 'J01', '27'),('002', 'Mahyudin Akbar', 'belawan', 'J01', '18'), ('003', 'rudi', 'bandung', 'J01', '22'), ('004', 'dian', 'medan', 'J01', '19'), ('005', 'iqbal', 'medan', 'J01', '28');
 
 CREATE TABLE matakuliah(
     id_mk VARCHAR(3) PRIMARY KEY NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE teach(
     FOREIGN KEY(id_dosen) REFERENCES dosen(id_dosen),
     FOREIGN KEY(id_mk) REFERENCES matakuliah(id_mk)
 );
-INSERT INTO teach(nilai, nim, id_dosen, id_mk) VALUES('A', '001', 'D01', 'MK1'),('D', '002', 'D01', 'MK1'), ('B', '001', 'D02', 'MK2'), ('E', '002', 'D02', 'MK2'), ('A', '001', 'D03', 'MK3');
+INSERT INTO teach(nilai, nim, id_dosen, id_mk) VALUES('A', '001', 'D01', 'MK1'),('D', '002', 'D01', 'MK1'), ('B', '001', 'D02', 'MK2'), ('E', '002', 'D02', 'MK2'), ('A', '001', 'D03', 'MK3'), ('A', '003', 'D02', 'MK2'), ('B', '004', 'D03', 'MK3'), ('B', '005', 'D03', 'MK3'), ('D', '002', 'D03', 'MK3'), ('D', '001', 'D03', 'MK3');
 ALTER TABLE teach RENAME TO kontrak;
 
 
