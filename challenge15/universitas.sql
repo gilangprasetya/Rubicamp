@@ -39,7 +39,7 @@ CREATE TABLE teach(
     FOREIGN KEY(id_dosen) REFERENCES dosen(id_dosen),
     FOREIGN KEY(id_mk) REFERENCES matakuliah(id_mk)
 );
-INSERT INTO teach(nilai, nim, id_dosen, id_mk) VALUES('A', '001', 'D01', 'MK1'),('D', '002', 'D01', 'MK1'), ('B', '001', 'D02', 'MK2'), ('E', '002', 'D02', 'MK2'), ('A', '001', 'D03', 'MK3'), ('A', '003', 'D02', 'MK2'), ('B', '004', 'D03', 'MK3'), ('B', '005', 'D03', 'MK3'), ('D', '002', 'D03', 'MK3'), ('D', '001', 'D03', 'MK3');
+INSERT INTO teach(nilai, nim, id_dosen, id_mk) VALUES('A', '001', 'D01', 'MK1'),('D', '002', 'D01', 'MK1'), ('B', '001', 'D02', 'MK2'), ('E', '002', 'D02', 'MK2'), ('A', '001', 'D03', 'MK3'), ('A', '003', 'D02', 'MK2'), ('B', '004', 'D03', 'MK3'), ('B', '005', 'D03', 'MK3'), ('D', '002', 'D03', 'MK3');
 ALTER TABLE teach RENAME TO kontrak;
 
 
@@ -60,7 +60,7 @@ SELECT mahasiswa.nim, mahasiswa.nama_mhs FROM mahasiswa JOIN kontrak ON mahasisw
 SELECT mahasiswa.nim, mahasiswa.nama_mhs, nama_mk FROM mahasiswa JOIN kontrak ON mahasiswa.nim = kontrak.nim JOIN matakuliah ON kontrak.id_mk = matakuliah.id_mk WHERE matakuliah.nama_mk = 'data mining';
 
 6. menampilkan jumlah mahasiswa untuk setiap dosen.
-SELECT dosen.id_dosen, dosen.nama_dosen, COUNT(mahasiswa.nim) as jumlahmahasiswa FROM dosen JOIN kontrak ON dosen.id_dosen = kontrak.id_dosen JOIN mahasiswa ON kontrak.nim = mahasiswa.nim GROUP BY dosen.id_dosen;
+SELECT dosen.id_dosen, dosen.nama_dosen, COUNT(DISTINCT mahasiswa.nim) as jumlahmahasiswa FROM dosen JOIN kontrak ON dosen.id_dosen = kontrak.id_dosen JOIN mahasiswa ON kontrak.nim = mahasiswa.nim GROUP BY dosen.id_dosen;
 
 7. mengurutkan mahasiswa berdasarkan umurnya
 SELECT * FROM mahasiswa ORDER BY umur_mhs ASC;
