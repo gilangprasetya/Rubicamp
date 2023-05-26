@@ -37,4 +37,4 @@ CREATE TABLE teach(
     FOREIGN KEY(id_dosen) REFERENCES dosen(id_dosen),
     FOREIGN KEY(id_mk) REFERENCES matakuliah(id_mk)
 );
-INSERT INTO(nim, id_dosen, id_mk) VALUES('001', 'D01', 'MK1')
+INSERT INTO teach(nim, id_dosen, id_mk) VALUES('001', 'D01', 'MK1')
