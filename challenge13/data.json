@@ -1,22 +1,31 @@
 [
    {
       "id": 1,
-      "sentence": "saya pergi nonton",
+      "sentence": "saya mau pergi ke pasar",
       "status": false,
-      "tags": [
-         "nonton"
-      ]
-   },
-   {
-      "id": 2,
-      "sentence": "saya pergi berbelanja",
-      "status": true,
       "tags": []
    },
    {
+      "id": 2,
+      "sentence": "saya mau makan siang",
+      "status": true,
+      "tags": [
+         "makan"
+      ]
+   },
+   {
       "id": 3,
-      "sentence": "saya pergi ke sekolah",
+      "sentence": "saya mau makan malam",
       "status": false,
+      "tags": [
+         "makan",
+         "telur"
+      ]
+   },
+   {
+      "id": 4,
+      "sentence": "pergi futsal",
+      "status": true,
       "tags": []
    }
 ]

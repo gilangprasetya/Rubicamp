@@ -119,14 +119,14 @@ if(args == undefined){
         case 'tag':
             let tagsIndex = args1 - 1
             let tagsItem = data[tagsIndex]
-            let datas = process.argv.slice(4).join(' ')
-            tagsItem.tags.push(datas)
+            let datas = process.argv.slice(4)
+            tagsItem.tags = tagsItem.tags.concat(datas)
             fs.writeFileSync('data.json', JSON.stringify(data, null, 3))
             console.log(`${datas} telah ditambahkan ke dalam tags ${args1}`)
             break;
         case args:
             console.log(`Daftar Pekerjaan`)
-            let keyword = args.split(':');
+            let keyword = args.split(':')
             let foundData = false
                 
             for (let i = 0; i < data.length; i++) {
