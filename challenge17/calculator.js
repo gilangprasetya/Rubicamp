@@ -54,3 +54,4 @@ class Calculator{
 }
 
 export {Calculator, PI}
+export default Calculator
