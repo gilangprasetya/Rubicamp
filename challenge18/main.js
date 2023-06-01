@@ -943,40 +943,43 @@ class KontrakMainMenu {
     }
 
     displayCariKontrak() {
-        rl.question('\nMasukkan NIM Mahasiswa : ', (nim) => {
-            const query = `
-        SELECT * FROM kontrak
-        WHERE nim = ?
-      `
-            db.all(query, [nim], (error, isi) => {
-                if (error) {
-                    console.error('Error executing query: ' + error.stack)
-                    return
-                }
+        this.tampilKontrak(() => {
+            rl.question('Masukkan NIM Mahasiswa : ', (nim) => {
+                const query = `
+                SELECT * FROM kontrak
+                WHERE nim = ?
+            `;
+                db.all(query, [nim], (error, rows) => {
+                    if (error) {
+                        console.error('Error executing query: ' + error.stack);
+                        return;
+                    }
 
-                if (isi) {
-                    const table = new Table({
-                        head: ['ID', 'NIM', 'Kode Mata kuliah', 'NIP', 'Nilai'],
-                        colWidths: [5, 20, 20, 20, 10]
-                    })
+                    if (rows.length > 0) {
+                        const table = new Table({
+                            head: ['ID', 'NIM', 'Kode Mata kuliah', 'NIP', 'Nilai'],
+                            colWidths: [5, 20, 20, 20, 10]
+                        });
 
-                    isi.forEach((row) => {
-                        const tes = ([row.id_kontrak, row.nim, row.id_mk, row.nip, row.nilai || ''])
-                        table.push(tes)
-                        // table.push([row.id_kontrak, row.nim, row.id_mk, row.nip, row.nilai])
-                    })
+                        rows.forEach((row) => {
+                            const rowData = [row.id_kontrak, row.nim, row.id_mk, row.nip, row.nilai || ''];
+                            table.push(rowData);
+                        });
 
-                    console.log(table.toString())
-                    console.log('')
+                        console.log(table.toString());
+                        console.log('');
 
-                    this.displayKontrakMenu()
-                } else {
-                    console.log('\n============================================================================================================\n')
-                    console.log(`Mahasiswa dengan nim ${nim}, tidak terdaftar.`)
-                }
+                        this.displayKontrakMenu();
+                    } else {
+                        console.log('\n============================================================================================================\n');
+                        console.log(`Mahasiswa dengan nim ${nim}, tidak terdaftar.`);
+                        this.displayKontrakMenu()
+                    }
+                })
             })
         })
     }
+
 
     displayTambahKontrak() {
         console.log('\n-- Tambah Kontrak --')
